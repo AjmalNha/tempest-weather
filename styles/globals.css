@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: rgb(15 15 15);
+  --color-foreground: rgb(248 250 252);
+  --color-muted-foreground: rgb(156 163 175);
+  --color-card: rgb(30 30 30);
+  --color-secondary: rgb(39 39 39);
+  --color-accent: rgb(54 54 54);
+  --color-muted: rgb(47 47 47);
+  --color-border: rgb(47 47 47);
+  --color-popover: rgb(22 22 22);
+  --color-surface: rgb(38 38 38);
+  --color-skeleton: rgb(58 58 58);
+  --color-skeleton-soft: rgb(52 52 52);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-manrope), "Manrope", sans-serif;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
