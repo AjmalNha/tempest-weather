@@ -59,6 +59,7 @@ function HighlightCard({ data }) {
   } = data;
   const Icon = ICON_MAP[iconType];
   const isSunCard = iconType === "sunrise" || iconType === "sunset";
+  const shouldCenterOnMobile = iconType === "wind" || iconType === "humidity";
 
   if (isPlaceholder) {
     return (
@@ -92,12 +93,22 @@ function HighlightCard({ data }) {
 
   return (
     <div className="bg-secondary rounded-3xl p-5 flex flex-col justify-between h-full min-h-[140px] relative">
-      <div className="flex items-center gap-2 text-gray-300 mb-4">
+      <div
+        className={`flex items-center gap-2 text-gray-300 mb-4 ${
+          shouldCenterOnMobile ? "justify-center md:justify-start" : ""
+        }`}
+      >
         {Icon ? <Icon className="w-5 h-5" /> : null}
         <span className="text-sm font-medium">{title}</span>
       </div>
 
-      <div className="flex flex-col items-end mt-auto text-white">
+      <div
+        className={`flex flex-col mt-auto text-white ${
+          shouldCenterOnMobile
+            ? "items-center text-center md:items-end md:text-right"
+            : "items-end"
+        }`}
+      >
         <div className="flex items-baseline gap-1">
           <span className="text-3xl font-semibold">{value}</span>
           {unit ? <span className="text-base font-medium">{unit}</span> : null}
@@ -112,6 +123,12 @@ function HighlightCard({ data }) {
 
 export default function WeatherStats({ data, status, unit = "c" }) {
   const isReady = status === "success" && data;
+  const mobileOrderClasses = [
+    "order-1 md:order-none",
+    "order-3 md:order-none",
+    "order-2 md:order-none",
+    "order-4 md:order-none",
+  ];
 
   const highlights = isReady
     ? [
@@ -168,8 +185,10 @@ export default function WeatherStats({ data, status, unit = "c" }) {
       <h2 className="text-white text-xl font-semibold mb-6">Today's Highlight</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 flex-1">
-        {highlights.map((item) => (
-          <HighlightCard key={item.id} data={item} />
+        {highlights.map((item, index) => (
+          <div key={item.id} className={mobileOrderClasses[index] || "md:order-none"}>
+            <HighlightCard data={item} />
+          </div>
         ))}
       </div>
     </div>
