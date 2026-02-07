@@ -16,7 +16,7 @@ const API_BASE_URL = process.env.OPENWEATHER_API_BASE_URL;
 const GEO_BASE_URL = process.env.NEXT_PUBLIC_OPENWEATHER_GEO_API_URL;
 const ICONS = {
   clearDay: "/weather/sun.png",
-  clearNight: "/weather/Moon.png",
+  clearNight: "/weather/moon.png",
   fewCloudsDay: "/weather/sun-clouds.png",
   fewCloudsNight: "/weather/moon-stars-cloud.png",
   scatteredCloudsDay: "/weather/sun-clouds-1.png",
@@ -25,7 +25,7 @@ const ICONS = {
   brokenCloudsNight: "/weather/moon-clouds.png",
   overcastDay: "/weather/sun-clouds.png",
   overcastNight: "/weather/moon-clouds.png",
-  rainDay: "/weather/sun-rain.png",
+  rainDay: "/weather/rain.png",
   rainNight: "/weather/moon-rain.png",
   rain: "/weather/rain.png",
   thunder: "/weather/thunder.png",

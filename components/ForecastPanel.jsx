@@ -10,7 +10,7 @@ export default function ForecastPanel({ data, status, unit = "c" }) {
           id: `placeholder-${index}`,
           day: "—",
           temp: "—",
-          icon: "/weather/sun-cloud.png",
+          icon: "/weather/sun-clouds.png",
         }))
       : [];
 

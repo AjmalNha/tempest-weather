@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { formatTemperature } from "@/utils/units";
 
 export default function HourlyForecast({ data, isPlaceholder, unit = "c" }) {
@@ -21,7 +22,7 @@ export default function HourlyForecast({ data, isPlaceholder, unit = "c" }) {
         {isPlaceholder ? (
           <div className="w-10 h-10 rounded-full bg-skeleton-soft animate-pulse" />
         ) : (
-          <img src={icon} alt={day} className="w-full h-full object-contain" />
+          <Image src={icon} alt={day} fill sizes="64px" className="object-contain" />
         )}
       </div>
 

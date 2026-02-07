@@ -182,6 +182,12 @@ export default function WeatherDashboard() {
             <h1 className="text-white text-2xl font-semibold tracking-wide">
               Weather Dashboard
             </h1>
+            <span className="text-sm text-muted-foreground">
+              {selectedLocation?.label ||
+                (status === "loading"
+                  ? "Detecting location..."
+                  : "Search for a location")}
+            </span>
           </div>
 
           <SearchAutocomplete

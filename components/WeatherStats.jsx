@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { formatWindSpeed, windUnitLabel } from "@/utils/units";
 
 function WindIcon({ className }) {
@@ -77,10 +78,12 @@ function HighlightCard({ data }) {
     return (
       <div className="bg-secondary rounded-3xl p-4 flex items-center justify-center gap-4 h-full min-h-[140px]">
         <div className="w-16 h-16 relative flex-shrink-0">
-          <img
+          <Image
             src={customIcon}
             alt={title}
-            className="w-full h-full object-contain"
+            fill
+            sizes="64px"
+            className="object-contain"
           />
         </div>
         <div className="flex flex-col text-white">
@@ -182,7 +185,7 @@ export default function WeatherStats({ data, status, unit = "c" }) {
 
   return (
     <div className="bg-card rounded-4xl p-6 h-full flex flex-col">
-      <h2 className="text-white text-xl font-semibold mb-6">Today's Highlight</h2>
+      <h2 className="text-white text-xl font-semibold mb-6">Today&apos;s Highlight</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 flex-1">
         {highlights.map((item, index) => (

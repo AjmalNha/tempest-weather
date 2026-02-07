@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { formatTemperature, unitLabel } from "@/utils/units";
 
 function MapPinIcon({ className }) {
@@ -126,10 +127,12 @@ export default function WeatherHero({
 
           <div className="flex flex-col md:flex-row items-center justify-between mt-auto gap-8 z-10">
             <div className="w-40 h-40 relative transform scale-125 md:scale-150">
-              <img
+              <Image
                 src={data.icon}
                 alt={conditionValue}
-                className="w-full h-full object-contain drop-shadow-2xl"
+                fill
+                sizes="(max-width: 768px) 160px, 240px"
+                className="object-contain drop-shadow-2xl"
               />
             </div>
 
